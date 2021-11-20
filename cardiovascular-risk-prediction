@@ -5,7 +5,8 @@
     "colab": {
       "name": "Untitled1.ipynb",
       "provenance": [],
-      "authorship_tag": "ABX9TyMei2iB0II703BzcCb7NNQF",
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyO3fnRMhSSxFxM8a+CjN5zM",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -73,7 +74,7 @@
         "%config InlineBackend.figure_format ='retina'\n",
         "%matplotlib inline"
       ],
-      "execution_count": 41,
+      "execution_count": 1,
       "outputs": []
     },
     {
@@ -94,7 +95,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "iTJpkLK4WFdu",
-        "outputId": "f4aea11b-92fe-4deb-af01-dc7d45a3a00d"
+        "outputId": "a7d8119e-2170-4535-bce7-14aa0d4cd2ea"
       },
       "source": [
         "from google.colab import drive\n",
@@ -138,10 +139,10 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 204
+          "height": 224
         },
         "id": "mDFeFp4hVc2J",
-        "outputId": "571f54bd-5178-4ec2-9ae8-e18af7277813"
+        "outputId": "92ade471-9eb1-46fa-9228-7fa55dee9cb0"
       },
       "source": [
         "cardio_df.head()"
@@ -317,7 +318,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "3YmlIMN1E4KC",
-        "outputId": "f0716c4f-548c-4bde-a287-bc9c79176f1a"
+        "outputId": "2261c670-ebcb-474f-9ea0-206a36e4ca4c"
       },
       "source": [
         "cardio_df.info()"
@@ -372,7 +373,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "H9pH_xblVwWt",
-        "outputId": "3dc8d297-e63e-4375-bfd6-142de08be523"
+        "outputId": "3fdd2572-a689-4dfa-fa91-5577b5ab72b6"
       },
       "source": [
         "cardio_df.shape"
@@ -447,7 +448,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "VGeI9nExlUKA",
-        "outputId": "f69c9ad8-5aa8-485a-9c59-89c69516906b"
+        "outputId": "138a9427-1201-4812-f24b-bd0194dc2972"
       },
       "source": [
         "# checking for missing values\n",
@@ -517,7 +518,7 @@
         "cardio_df['glucose'].fillna(cardio_df.groupby('diabetes')['glucose'].transform('mean'),inplace =True)\n",
         "cardio_df['education'].fillna(cardio_df.groupby('age')['education'].transform('mean'),inplace =True)\n"
       ],
-      "execution_count": 5,
+      "execution_count": 9,
       "outputs": []
     },
     {
@@ -527,12 +528,12 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "c1IG-r8LVCKu",
-        "outputId": "dbdc17ac-bd89-4275-85b2-228eba5a8e33"
+        "outputId": "9598be41-b5e1-4160-910f-04fd1314eb95"
       },
       "source": [
         "cardio_df.isna().sum()"
       ],
-      "execution_count": 6,
+      "execution_count": 10,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -559,7 +560,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 6
+          "execution_count": 10
         }
       ]
     },
@@ -580,7 +581,7 @@
           "height": 1000
         },
         "id": "zml1xwm-loNp",
-        "outputId": "f189c559-7dd1-4729-baf4-26c543537c8e"
+        "outputId": "2ef004fe-bf1c-42fe-9907-0e570fab5b94"
       },
       "source": [
         "# checking distributions using histograms\n",
@@ -588,7 +589,7 @@
         "ax = fig.gca()\n",
         "cardio_df.hist(ax = ax)"
       ],
-      "execution_count": 7,
+      "execution_count": 11,
       "outputs": [
         {
           "output_type": "stream",
@@ -602,27 +603,27 @@
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f4b66a40a90>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b50220210>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b501cea50>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b50177b90>],\n",
-              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f4b50145690>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b500fcc90>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b500be350>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b502e65d0>],\n",
-              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f4b50283bd0>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b5010e6d0>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b5001b650>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b4ffcec50>],\n",
-              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f4b4ff93290>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b4ff47890>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b4fefde90>,\n",
-              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f4b4febf4d0>]],\n",
+              "array([[<matplotlib.axes._subplots.AxesSubplot object at 0x7f662c12ea50>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662c076f50>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662c036590>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bfebb90>],\n",
+              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f662bfaf1d0>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bf637d0>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bf98dd0>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bf5d410>],\n",
+              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f662bee74d0>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bf1bc10>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662be8a650>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662be3fc50>],\n",
+              "       [<matplotlib.axes._subplots.AxesSubplot object at 0x7f662be02290>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bdb8810>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bd6ee10>,\n",
+              "        <matplotlib.axes._subplots.AxesSubplot object at 0x7f662bd31450>]],\n",
               "      dtype=object)"
             ]
           },
           "metadata": {},
-          "execution_count": 7
+          "execution_count": 11
         },
         {
           "output_type": "display_data",
@@ -675,7 +676,7 @@
           "height": 716
         },
         "id": "v5dtGJahoY6I",
-        "outputId": "7e2dfae5-97f4-42c6-df8e-acb87c7143cc"
+        "outputId": "2be86417-7c2e-47af-e7b1-3e1b01312bb8"
       },
       "source": [
         "df_corr = cardio_df.corr()\n",
@@ -685,7 +686,7 @@
         "           cmap= 'coolwarm')\n",
         "plt.title('Correlation between features');\n"
       ],
-      "execution_count": 8,
+      "execution_count": 12,
       "outputs": [
         {
           "output_type": "display_data",
@@ -713,7 +714,7 @@
       "source": [
         "cardio_df = cardio_df.drop(['education'], axis = 1)"
       ],
-      "execution_count": 9,
+      "execution_count": 13,
       "outputs": []
     },
     {
@@ -723,12 +724,12 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "0PIEIGuEl_qA",
-        "outputId": "ea426eb5-031e-46dd-a644-9025b0d02cae"
+        "outputId": "c2c365ad-03fd-4eb1-d60c-30528b9ac12b"
       },
       "source": [
         "cardio_df.isna().sum()"
       ],
-      "execution_count": 10,
+      "execution_count": 14,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -754,7 +755,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 10
+          "execution_count": 14
         }
       ]
     },
@@ -775,22 +776,22 @@
           "height": 281
         },
         "id": "a8LoYPI_Vv65",
-        "outputId": "8d7a2de9-46dc-4690-a752-e2677ed4505e"
+        "outputId": "45b95e42-e7d9-46a4-8cdb-4421b6fcce87"
       },
       "source": [
         "cardio_df['TenYearCHD'].value_counts().plot(x= cardio_df['TenYearCHD'],kind ='bar')"
       ],
-      "execution_count": 11,
+      "execution_count": 15,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b454bb5d0>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f662196bf10>"
             ]
           },
           "metadata": {},
-          "execution_count": 11
+          "execution_count": 15
         },
         {
           "output_type": "display_data",
@@ -818,7 +819,7 @@
           "height": 295
         },
         "id": "TDFCWFJ6c_5c",
-        "outputId": "ace7502b-4d9c-47b3-c994-396c2ffd3387"
+        "outputId": "a0191de8-96af-45eb-d0fc-a4a126c796f4"
       },
       "source": [
         "cardio_df_plot = cardio_df.copy()\n",
@@ -826,17 +827,17 @@
         "cardio_df_plot = cardio_df_plot.rename(columns={'male':'sex'})\n",
         "sns.countplot(data=cardio_df_plot,x='sex',hue='TenYearCHD')"
       ],
-      "execution_count": 12,
+      "execution_count": 16,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b4fe3ae10>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f6621663750>"
             ]
           },
           "metadata": {},
-          "execution_count": 12
+          "execution_count": 16
         },
         {
           "output_type": "display_data",
@@ -863,12 +864,12 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "ryVSb7qGf8Ia",
-        "outputId": "f5630542-4ee4-46df-acc4-ca613f8ee8a1"
+        "outputId": "05672c80-e0e6-4a7a-b66c-af7cea7b3aa5"
       },
       "source": [
         "cardio_df.columns"
       ],
-      "execution_count": 14,
+      "execution_count": 17,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -881,7 +882,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 14
+          "execution_count": 17
         }
       ]
     },
@@ -902,23 +903,23 @@
           "height": 295
         },
         "id": "zG_iq3Eifvt8",
-        "outputId": "6dbdbf17-b3bf-4265-98aa-3acfbc626745"
+        "outputId": "4fc421d7-8736-4047-fdf5-05d4d15c5083"
       },
       "source": [
         "cardio_df_plot['diabetes'] = cardio_df_plot['diabetes'].replace({0:'no',1:'yes'})\n",
         "sns.countplot(data=cardio_df_plot,x='diabetes',hue='TenYearCHD')"
       ],
-      "execution_count": 15,
+      "execution_count": 18,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b455149d0>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f66205e7050>"
             ]
           },
           "metadata": {},
-          "execution_count": 15
+          "execution_count": 18
         },
         {
           "output_type": "display_data",
@@ -956,7 +957,7 @@
           "height": 295
         },
         "id": "l-ze7bzhgTuY",
-        "outputId": "edd0a1a6-53ea-4fc8-f64c-dafd996e8ef4"
+        "outputId": "57185acf-c00b-4b76-bd80-09c579899b41"
       },
       "source": [
         "bins =[30,40,50,60,75]\n",
@@ -964,17 +965,17 @@
         "cardio_df_plot['Age_group'] = pd.cut(cardio_df_plot['age'], bins=bins,labels=labels,right=False)\n",
         "sns.countplot(data=cardio_df_plot,x='Age_group',hue='TenYearCHD')\n"
       ],
-      "execution_count": 16,
+      "execution_count": 19,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b43ef2890>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f66205cacd0>"
             ]
           },
           "metadata": {},
-          "execution_count": 16
+          "execution_count": 19
         },
         {
           "output_type": "display_data",
@@ -1011,7 +1012,7 @@
           "height": 295
         },
         "id": "3cW-PKzXilJ3",
-        "outputId": "e6f04fe4-b2be-4803-fcc1-318cb6da780b"
+        "outputId": "e826dedd-0ff0-4f3d-d0f9-1c3d1ab5dfe0"
       },
       "source": [
         "bins = [0,10,20,30,40,50,60,70,80]\n",
@@ -1020,17 +1021,17 @@
         "sns.countplot(data=cardio_df_plot,x='cigsPerDay',hue='TenYearCHD')\n",
         "\n"
       ],
-      "execution_count": 17,
+      "execution_count": 20,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b43e7c7d0>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f66204d01d0>"
             ]
           },
           "metadata": {},
-          "execution_count": 17
+          "execution_count": 20
         },
         {
           "output_type": "display_data",
@@ -1076,7 +1077,7 @@
         "X = cardio_df.iloc[:, :-1].values\n",
         "y = cardio_df.iloc[:, -1].values"
       ],
-      "execution_count": 18,
+      "execution_count": 21,
       "outputs": []
     },
     {
@@ -1088,7 +1089,7 @@
         "from sklearn.model_selection import train_test_split\n",
         "x_train, x_test, y_train, y_test = train_test_split(X,y,test_size = 0.2, random_state = 1)"
       ],
-      "execution_count": 19,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1103,7 +1104,7 @@
       "source": [
         "cardio_df.columns"
       ],
-      "execution_count": 20,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1131,7 +1132,7 @@
         "        'diaBP', 'BMI', 'heartRate', 'glucose']].copy()\n",
         "y=cardio_df['TenYearCHD'].copy()"
       ],
-      "execution_count": 21,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1149,7 +1150,7 @@
         "print(X_train.shape)\n",
         "print(X_test.shape)"
       ],
-      "execution_count": 22,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1173,7 +1174,7 @@
       "source": [
         "y_train.value_counts()"
       ],
-      "execution_count": 23,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1212,7 +1213,7 @@
         "  \n",
         "    return accuracy, error"
       ],
-      "execution_count": 24,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1225,7 +1226,7 @@
         "prediction_var = list(X.columns)\n",
         "outcome_var= 'TenYearCHD'"
       ],
-      "execution_count": 25,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -1280,7 +1281,7 @@
       "source": [
         "cardio_df.dtypes"
       ],
-      "execution_count": 26,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1323,7 +1324,7 @@
       "source": [
         "cardio_df.head()"
       ],
-      "execution_count": 27,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1489,7 +1490,7 @@
       "source": [
         "from sklearn.preprocessing import LabelEncoder"
       ],
-      "execution_count": 28,
+      "execution_count": 22,
       "outputs": []
     },
     {
@@ -1502,7 +1503,7 @@
         "cardio_df['sex']=le.fit_transform(cardio_df['sex'])\n",
         "cardio_df['is_smoking']=le.fit_transform(cardio_df['is_smoking'])\n"
       ],
-      "execution_count": 29,
+      "execution_count": 23,
       "outputs": []
     },
     {
@@ -1716,7 +1717,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "XQRa3CVhOuoI",
-        "outputId": "c82822e1-a4b5-477d-9171-1a0f4b21f5d5"
+        "outputId": "c8b568cb-6ce0-47e5-ea46-da7bc599b738"
       },
       "source": [
         " #Identify the features with the most importance for the outcome variable Heart Disease\n",
@@ -1740,7 +1741,7 @@
         "print(featureScores.nlargest(11,'Score'))  #print 10 best features\n",
         "           "
       ],
-      "execution_count": 30,
+      "execution_count": 24,
       "outputs": [
         {
           "output_type": "stream",
@@ -1770,13 +1771,13 @@
           "height": 483
         },
         "id": "rYPuxc8TPQqv",
-        "outputId": "45ef5e9f-2314-4a46-f786-aa09fecb5f16"
+        "outputId": "2ddbf570-6dc0-483d-a7ef-79a0534e938f"
       },
       "source": [
         "featureScores = featureScores.sort_values(by='Score', ascending=False)\n",
         "featureScores"
       ],
-      "execution_count": 31,
+      "execution_count": 25,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1898,7 +1899,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 31
+          "execution_count": 25
         }
       ]
     },
@@ -1907,10 +1908,10 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 459
+          "height": 479
         },
         "id": "QMHEDcJPPcDJ",
-        "outputId": "d3599518-f3d8-40a4-a260-c83215fe02aa"
+        "outputId": "1d67710f-8efb-4baf-b68b-00e6d8ee4d93"
       },
       "source": [
         "# visualizing feature selection\n",
@@ -1924,7 +1925,7 @@
         "plt.yticks(fontsize=12)\n",
         "plt.show()"
       ],
-      "execution_count": 51,
+      "execution_count": 26,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1934,17 +1935,17 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b3aa74d90>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f6621655990>"
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
@@ -1954,7 +1955,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
@@ -1964,7 +1965,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
@@ -1974,7 +1975,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
@@ -1985,7 +1986,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "execute_result",
@@ -1996,7 +1997,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 51
+          "execution_count": 26
         },
         {
           "output_type": "display_data",
@@ -2045,13 +2046,13 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "LeJB2mOqPqoE",
-        "outputId": "cf793e7c-bf62-42b7-bba8-b14960f9c9ac"
+        "outputId": "a2dbfbe3-9db8-4d65-859a-0f369ad485e4"
       },
       "source": [
         "features_list = featureScores[\"Specs\"].tolist()[:10]\n",
         "features_list"
       ],
-      "execution_count": 33,
+      "execution_count": 27,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2070,7 +2071,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 33
+          "execution_count": 27
         }
       ]
     },
@@ -2082,13 +2083,13 @@
           "height": 204
         },
         "id": "6KnFY70rP14v",
-        "outputId": "bcf2a75b-621e-4729-cd0d-81bc2cbdd9d7"
+        "outputId": "c28ae151-a7ad-42ae-9421-4b3db51df14b"
       },
       "source": [
         "cardio_df = cardio_df[['sysBP', 'glucose','age','totChol','cigsPerDay','diaBP','prevalentHyp','diabetes','BPMeds','sex','TenYearCHD']]\n",
         "cardio_df.head()"
       ],
-      "execution_count": 34,
+      "execution_count": 28,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2212,7 +2213,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 34
+          "execution_count": 28
         }
       ]
     },
@@ -2239,10 +2240,10 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 577
+          "height": 597
         },
         "id": "Xc43kM5UQdlC",
-        "outputId": "62f7a4a9-a416-4fd8-9378-e7061637c902"
+        "outputId": "68368651-2998-4720-a6d8-49b3d5d50122"
       },
       "source": [
         "scaler = MinMaxScaler(feature_range=(0,1)) \n",
@@ -2251,7 +2252,7 @@
         "df_scaled.describe()\n",
         "cardio_df.describe()"
       ],
-      "execution_count": 35,
+      "execution_count": 29,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2420,7 +2421,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 35
+          "execution_count": 29
         },
         {
           "output_type": "execute_result",
@@ -2589,7 +2590,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 35
+          "execution_count": 29
         }
       ]
     },
@@ -2614,7 +2615,7 @@
         "# divide train test: 80 % - 20 %\n",
         "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=29)"
       ],
-      "execution_count": 36,
+      "execution_count": 30,
       "outputs": []
     },
     {
@@ -2624,13 +2625,13 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "KmmTUjOyRQK7",
-        "outputId": "121313eb-8ba9-429e-d0df-6c6ee2906957"
+        "outputId": "8a2e4e08-6489-445b-c150-6cce676ef8f1"
       },
       "source": [
         "len(X_train)\n",
         "len(X_test)"
       ],
-      "execution_count": null,
+      "execution_count": 31,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2640,7 +2641,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 32
+          "execution_count": 31
         },
         {
           "output_type": "execute_result",
@@ -2650,7 +2651,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 32
+          "execution_count": 31
         }
       ]
     },
@@ -2668,10 +2669,10 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 430
+          "height": 0
         },
         "id": "0v4Ml_i-Rv6J",
-        "outputId": "5bb104b7-0f36-4e35-8b75-c59c2130e773"
+        "outputId": "7ded4aa4-085a-4e38-ea6d-8ba924ee1637"
       },
       "source": [
         "# Checking balance of outcome variable\n",
@@ -2688,7 +2689,7 @@
         "plt.savefig('Balance Heart Disease.png')\n",
         "plt.show()"
       ],
-      "execution_count": 37,
+      "execution_count": 32,
       "outputs": [
         {
           "output_type": "stream",
@@ -2711,11 +2712,11 @@
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b43bc6650>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f662038c310>"
             ]
           },
           "metadata": {},
-          "execution_count": 37
+          "execution_count": 32
         },
         {
           "output_type": "execute_result",
@@ -2725,7 +2726,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 37
+          "execution_count": 32
         },
         {
           "output_type": "execute_result",
@@ -2735,7 +2736,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 37
+          "execution_count": 32
         },
         {
           "output_type": "execute_result",
@@ -2745,7 +2746,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 37
+          "execution_count": 32
         },
         {
           "output_type": "display_data",
@@ -2802,7 +2803,7 @@
           "height": 413
         },
         "id": "D-1HOI_eR7LZ",
-        "outputId": "6cdbf2a9-61b6-4221-8cb5-ca5b6e24fd26"
+        "outputId": "44e2ceb2-f2ad-40ae-de1b-3c602515ec14"
       },
       "source": [
         "# Shuffle df\n",
@@ -2829,7 +2830,7 @@
         "#plt.savefig('Balance Heart Disease.png')\n",
         "plt.show()"
       ],
-      "execution_count": 38,
+      "execution_count": 33,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2841,7 +2842,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 38
+          "execution_count": 33
         },
         {
           "output_type": "stream",
@@ -2855,11 +2856,11 @@
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4b43ba4cd0>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f66202f1a90>"
             ]
           },
           "metadata": {},
-          "execution_count": 38
+          "execution_count": 33
         },
         {
           "output_type": "execute_result",
@@ -2869,7 +2870,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 38
+          "execution_count": 33
         },
         {
           "output_type": "execute_result",
@@ -2879,7 +2880,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 38
+          "execution_count": 33
         },
         {
           "output_type": "execute_result",
@@ -2889,7 +2890,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 38
+          "execution_count": 33
         },
         {
           "output_type": "display_data",
@@ -2935,7 +2936,7 @@
       "source": [
         "from xgboost import XGBClassifier"
       ],
-      "execution_count": 44,
+      "execution_count": 34,
       "outputs": []
     },
     {
@@ -2946,7 +2947,7 @@
           "height": 231
         },
         "id": "9GpAuNl8SJLQ",
-        "outputId": "d6a1b7c0-784c-4d67-911c-7d70e0da754a"
+        "outputId": "8d3edb85-a22f-45ff-d0ce-9449c13e5bf9"
       },
       "source": [
         "y_train = normalized_df['TenYearCHD']\n",
@@ -2961,7 +2962,7 @@
         "    pipe.fit(X_train, y_train)   \n",
         "    print(\"The accuracy score of {0} is: {1:.2f}%\".format(classifier,(pipe.score(X_test, y_test)*100)))\n"
       ],
-      "execution_count": 43,
+      "execution_count": 35,
       "outputs": [
         {
           "output_type": "error",
@@ -2970,7 +2971,7 @@
           "traceback": [
             "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
             "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-43-b561b294bd95>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0msklearn\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpipeline\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mPipeline\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mclassifiers\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mLogisticRegression\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mXgboost\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mGaussianNB\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mKNeighborsClassifier\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mclassifier\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mclassifiers\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m<ipython-input-35-b561b294bd95>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0msklearn\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpipeline\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mPipeline\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mclassifiers\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mLogisticRegression\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mXgboost\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mGaussianNB\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mKNeighborsClassifier\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mclassifier\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mclassifiers\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
             "\u001b[0;31mNameError\u001b[0m: name 'Xgboost' is not defined"
           ]
         }
@@ -3019,7 +3020,7 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "E-lO_LL6mRg9",
-        "outputId": "9de3501a-b92e-40df-a7a9-d363cc5d660b"
+        "outputId": "e4b56bc6-c6e5-4937-f147-d42f00d7cb96"
       },
       "source": [
         "normalized_df_reg = LogisticRegression().fit(X_train, y_train)\n",
@@ -3042,7 +3043,7 @@
         "recall = recall_score(y_test, normalized_df_reg_pred)\n",
         "print(f\"The recall score for LogReg is: {round(recall,3)*100}%\")"
       ],
-      "execution_count": null,
+      "execution_count": 36,
       "outputs": [
         {
           "output_type": "stream",
@@ -3085,7 +3086,7 @@
           "height": 343
         },
         "id": "xx6oQ5mQntOw",
-        "outputId": "a05a419c-4b35-40e1-d8a6-4d5ce889891d"
+        "outputId": "3e96c496-eded-4ad0-c012-4c2ade6983e4"
       },
       "source": [
         " #plotting confusion matrix LogReg\n",
@@ -3097,13 +3098,13 @@
         "plt.tight_layout()\n",
         "plt.title('Confusion matrix Logistic Regression\\n', y=1.1)"
       ],
-      "execution_count": null,
+      "execution_count": 37,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "<matplotlib.axes._subplots.AxesSubplot at 0x7f4ce7be0890>"
+              "<matplotlib.axes._subplots.AxesSubplot at 0x7f6621b133d0>"
             ]
           },
           "metadata": {},
@@ -3154,7 +3155,7 @@
       "source": [
         "from sklearn.metrics import classification_report"
       ],
-      "execution_count": null,
+      "execution_count": 38,
       "outputs": []
     },
     {
@@ -3164,33 +3165,27 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "ZHUL0epOoYTp",
-        "outputId": "450e9fab-0ca9-4097-ae9c-e5b83c4be9bb"
+        "outputId": "879b5f88-52d0-4cac-8420-175ba063f145"
       },
       "source": [
         "from xgboost import XGBClassifier\n",
         "\n",
         "model_x = XGBClassifier(random_state=1)\n",
         "model_x.fit(X_train, y_train)\n",
-        "y_pred7 = model7.predict(X_test)\n",
+        "y_pred7 = model_x.predict(X_test)\n",
         "print(classification_report(y_test, y_pred7))"
       ],
-      "execution_count": null,
+      "execution_count": 40,
       "outputs": [
         {
           "output_type": "execute_result",
           "data": {
             "text/plain": [
-              "XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,\n",
-              "              colsample_bynode=1, colsample_bytree=1, gamma=0,\n",
-              "              learning_rate=0.1, max_delta_step=0, max_depth=3,\n",
-              "              min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,\n",
-              "              nthread=None, objective='binary:logistic', random_state=1,\n",
-              "              reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=None,\n",
-              "              silent=None, subsample=1, verbosity=1)"
+              "XGBClassifier(random_state=1)"
             ]
           },
           "metadata": {},
-          "execution_count": 47
+          "execution_count": 40
         },
         {
           "output_type": "stream",
@@ -3288,7 +3283,7 @@
         "y_pred4 = model4.predict(X_test) # get y predictions\n",
         "print(classification_report(y_test, y_pred4)) # output accuracy"
       ],
-      "execution_count": 45,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -3364,7 +3359,7 @@
         "recall = recall_score(y_test, normalized_df_knn_pred)\n",
         "print(f\"The recall score for KNN is: {round(recall,3)*100}%\")"
       ],
-      "execution_count": 46,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -3414,7 +3409,7 @@
         "acc_train = knn.score(X_train, y_train)\n",
         "print(\"The accuracy score of the training data is: \",round(acc_train*100,2),\"%\")"
       ],
-      "execution_count": 47,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -3455,7 +3450,7 @@
         "print (\"Cross-validated scores:\", cv_results)\n",
         "print(\"The Accuracy of Model with Cross Validation is: {0:.2f}%\".format(cv_results.mean() * 100))"
       ],
-      "execution_count": 48,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -3500,7 +3495,7 @@
         "\n",
         "ax.set_xlabel('Predicted ');ax.set_ylabel('True'); \n"
       ],
-      "execution_count": 49,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -3546,7 +3541,7 @@
         "\n",
         "print(f\"The score for the AUC ROC Curve is: {round(auc,3)*100}%\")"
       ],
-      "execution_count": 50,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -3638,7 +3633,7 @@
       "source": [
         "cardio_df.head()"
       ],
-      "execution_count": 52,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
