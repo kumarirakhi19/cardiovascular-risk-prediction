@@ -5,8 +5,7 @@
     "colab": {
       "name": "Untitled1.ipynb",
       "provenance": [],
-      "toc_visible": true,
-      "authorship_tag": "ABX9TyO3fnRMhSSxFxM8a+CjN5zM",
+      "authorship_tag": "ABX9TyMSpno6P28huTcHgvU7mu4w",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -139,7 +138,7 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 224
+          "height": 204
         },
         "id": "mDFeFp4hVc2J",
         "outputId": "92ade471-9eb1-46fa-9228-7fa55dee9cb0"
@@ -1908,7 +1907,7 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 479
+          "height": 459
         },
         "id": "QMHEDcJPPcDJ",
         "outputId": "1d67710f-8efb-4baf-b68b-00e6d8ee4d93"
@@ -2240,7 +2239,7 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 597
+          "height": 577
         },
         "id": "Xc43kM5UQdlC",
         "outputId": "68368651-2998-4720-a6d8-49b3d5d50122"
@@ -2669,7 +2668,7 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 0
+          "height": 430
         },
         "id": "0v4Ml_i-Rv6J",
         "outputId": "7ded4aa4-085a-4e38-ea6d-8ba924ee1637"
@@ -2943,11 +2942,10 @@
       "cell_type": "code",
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 231
+          "base_uri": "https://localhost:8080/"
         },
         "id": "9GpAuNl8SJLQ",
-        "outputId": "8d3edb85-a22f-45ff-d0ce-9449c13e5bf9"
+        "outputId": "93948c50-ed65-42e6-f302-c6a51cbd5d26"
       },
       "source": [
         "y_train = normalized_df['TenYearCHD']\n",
@@ -2955,24 +2953,81 @@
         "\n",
         "from sklearn.pipeline import Pipeline\n",
         "\n",
-        "classifiers = [LogisticRegression(),Xgboost(),GaussianNB(),KNeighborsClassifier(2)]\n",
+        "classifiers = [LogisticRegression(),XGBClassifier(),GaussianNB(),KNeighborsClassifier(2)]\n",
         "\n",
         "for classifier in classifiers:\n",
         "    pipe = Pipeline(steps=[('classifier', classifier)])\n",
         "    pipe.fit(X_train, y_train)   \n",
         "    print(\"The accuracy score of {0} is: {1:.2f}%\".format(classifier,(pipe.score(X_test, y_test)*100)))\n"
       ],
-      "execution_count": 35,
+      "execution_count": 41,
       "outputs": [
         {
-          "output_type": "error",
-          "ename": "NameError",
-          "evalue": "ignored",
-          "traceback": [
-            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-35-b561b294bd95>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;32mfrom\u001b[0m \u001b[0msklearn\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpipeline\u001b[0m \u001b[0;32mimport\u001b[0m \u001b[0mPipeline\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mclassifiers\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mLogisticRegression\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mXgboost\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mGaussianNB\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0mKNeighborsClassifier\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;36m2\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mclassifier\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mclassifiers\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mNameError\u001b[0m: name 'Xgboost' is not defined"
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Pipeline(steps=[('classifier', LogisticRegression())])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The accuracy score of LogisticRegression() is: 70.06%\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Pipeline(steps=[('classifier', XGBClassifier())])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The accuracy score of XGBClassifier() is: 71.24%\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Pipeline(steps=[('classifier', GaussianNB())])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The accuracy score of GaussianNB() is: 80.97%\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Pipeline(steps=[('classifier', KNeighborsClassifier(n_neighbors=2))])"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 41
+        },
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The accuracy score of KNeighborsClassifier(n_neighbors=2) is: 83.33%\n"
           ]
         }
       ]
@@ -3200,57 +3255,6 @@
             "   macro avg       0.61      0.73      0.61       678\n",
             "weighted avg       0.86      0.71      0.76       678\n",
             "\n"
-          ]
-        }
-      ]
-    },
-    {
-      "cell_type": "code",
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 231
-        },
-        "id": "1Kze1hQPoEan",
-        "outputId": "5fd8141f-f5fe-4f68-8bdf-9eab55b6024e"
-      },
-      "source": [
-        "\n",
-        "#initialize model\n",
-        "xgboost = XGBClassifier\n",
-        "\n",
-        "#fit model\n",
-        "xgboost.fit(X_train,y_train)\n",
-        "\n",
-        "normalized_df_xgboost_pred = xgboost.predict(X_test)\n",
-        "\n",
-        "# check accuracy: Accuracy: Overall, how often is the classifier correct? Accuracy = (True Pos + True Negative)/total\n",
-        "acc = accuracy_score(y_test, normalized_df_xgboost_pred)\n",
-        "print(f\"The accuracy score for xgboost is: {round(acc,3)*100}%\")\n",
-        "\n",
-        "# f1 score: The F1 score can be interpreted as a weighted average of the precision and recall, where an F1 score reaches its best value at 1 and worst score at 0.\n",
-        "f1 = f1_score(y_test, normalized_df_svm_pred)\n",
-        "print(f\"The f1 score for xgboost is: {round(f1,3)*100}%\")\n",
-        "\n",
-        "# Precision score: When it predicts yes, how often is it correct? Precision=True Positive/predicted yes\n",
-        "precision = precision_score(y_test, normalized_df_svm_pred)\n",
-        "print(f\"The precision score for xgboost is: {round(precision,3)*100}%\")\n",
-        "\n",
-        "# recall score: True Positive Rate(Sensitivity or Recall): When it’s actually yes, how often does it predict yes? True Positive Rate = True Positive/actual yes\n",
-        "recall = recall_score(y_test, normalized_df_svm_pred)\n",
-        "print(f\"The recall score for xgboost is: {round(recall,3)*100}%\")"
-      ],
-      "execution_count": null,
-      "outputs": [
-        {
-          "output_type": "error",
-          "ename": "TypeError",
-          "evalue": "ignored",
-          "traceback": [
-            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
-            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
-            "\u001b[0;32m<ipython-input-46-9e136c9f2c10>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0;31m#fit model\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0mxgboost\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mfit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX_train\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0my\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0mnormalized_df_xgboost_pred\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mxgboost\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mpredict\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mX_test\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mTypeError\u001b[0m: fit() missing 1 required positional argument: 'y'"
           ]
         }
       ]
